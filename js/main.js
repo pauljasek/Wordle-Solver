@@ -37,10 +37,19 @@ function getGuess(guesses, clues, success_f, fail_f) {
 
 function makeLetterListener(i, letters, guessButton) {
     return function(e) {
-        if (e.data && e.data.match(/[a-z]/i)) {
+        if (e.data && e.data.length === 1 && e.data.match(/[a-z]/i)) {
             letters[i].innerText = e.data.toUpperCase();
             letters[i].oldValue = letters[i].innerText;
-        } else {
+        } else if (e.data && e.data.length === 2) {
+            if (e.data[0].toUpperCase() == letters[i].oldValue) {
+                letters[i].innerText = e.data[1].toUpperCase();
+                letters[i].oldValue = letters[i].innerText;
+            } else {
+                letters[i].innerText = e.data[0].toUpperCase();
+                letters[i].oldValue = letters[i].innerText;
+            }
+        }
+        else {
             letters[i].innerText = letters[i].oldValue;
         }
         if (i+1 < letters.length) {
