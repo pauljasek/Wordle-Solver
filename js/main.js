@@ -38,7 +38,7 @@ function getGuess(guesses, clues, success_f, fail_f) {
 function makeLetterListener(i, letters, guessButton) {
     return function(e) {
         if (e.data && e.data.length === 1 && e.data.match(/[a-z]/i)) {
-            letters[i].innerText = e.data.toUpperCase();
+            letters[i].innerText = e.data[0].toUpperCase();
             letters[i].oldValue = letters[i].innerText;
         } else if (e.data && e.data.length === 2) {
             if (e.data[0].toUpperCase() === letters[i].oldValue) {
@@ -52,6 +52,8 @@ function makeLetterListener(i, letters, guessButton) {
         else {
             letters[i].innerText = letters[i].oldValue;
         }
+        letters[i].parentElement.parentElement.parentElement.nextElementSibling.innerHTML = e.data + " " + e.inputType;
+
         if (i+1 < letters.length) {
             letters[i+1].focus();
         } else {
