@@ -210,6 +210,9 @@ function makeGuessButtonListener(infoText, possibleWordsText, letters, guessButt
 function makeClueButtonListener(board, infoText, possibleWordsText, letters, clueButton, clue) {
     return function(e) {
         clueButton.remove();
+        for (var i = 0; i < letters.length; i++) {
+            letters[i].removeEventListener('click', letters[i].clickListener, false);    
+        }
         clues.push(clue);
         if (clue[0] != 2 || clue[1] != 2 || clue[2] != 2 || clue[3] != 2 || clue[4] != 2) {
             console.log("making guess...", guesses, clues)
