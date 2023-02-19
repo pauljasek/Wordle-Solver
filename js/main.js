@@ -37,7 +37,7 @@ function getGuess(guesses, clues, success_f, fail_f) {
 
 function makeLetterListener(i, letters, guessButton) {
     return function(e) {
-        if ((e.inputType === 'insertText' || e.inputType === 'insertFromComposition' || e.inputType === 'insertCompositionText') && e.data.match(/[a-z]/i)) {
+        if (e.data && e.data.match(/[a-z]/i)) {
             letters[i].innerText = e.data.toUpperCase();
             letters[i].oldValue = letters[i].innerText;
         } else {
