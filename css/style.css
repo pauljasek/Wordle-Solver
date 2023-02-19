@@ -30,13 +30,12 @@ div {
 .board {
     display: inline-block;
     text-align: center;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
-.info {
-    width: 30em;
+.info, .possibleWords {
+    width: 22em;
 }
+
 
 .row_container {
     display: block;
@@ -51,8 +50,8 @@ div {
 
 .letter {
     font-family: "arial";
-    width: 52px;
-    height: 52px;
+    width: 45px;
+    height: 45px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -70,12 +69,12 @@ div {
 
 button.solveButton {
     font-family: "arial";
-    width: 52px;
-    height: 52px;
+    width: 45px;
+    height: 45px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     line-height: 1;
     font-weight: bold;
     vertical-align: middle;
