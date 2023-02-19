@@ -1,0 +1,201 @@
+== Info:   Trying 52.44.96.117:443...
+== Info: Connected to br7gxujg3p2vooleijh7nuwq2u0tpggb.lambda-url.us-east-1.on.aws (52.44.96.117) port 443 (#0)
+== Info: ALPN, offering h2
+== Info: ALPN, offering http/1.1
+== Info:  CAfile: /etc/ssl/certs/ca-certificates.crt
+== Info:  CApath: /etc/ssl/certs
+== Info: TLSv1.0 (OUT), TLS header, Certificate Status (22):
+=> Send SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.3 (OUT), TLS handshake, Client hello (1):
+=> Send SSL data, 512 bytes (0x200)
+0000: ..........y.h.Rd.._*.T..i.F<=H.fd..... .a.....B8..8t..sK._..J4Y.
+0040: ..V0....>.......,.0.........+./...$.(.k.#.'.g.....9.....3.....=.
+0080: <.5./.....u...A.?..<br7gxujg3p2vooleijh7nuwq2u0tpggb.lambda-url.
+00c0: us-east-1.on.aws..................................3t.........h2.
+0100: http/1.1.........1.....*.(......................................
+0140: ...+........-.....3.&.$... ..n............m.b.h.C2...W.uS.g.....
+0180: ................................................................
+01c0: ................................................................
+== Info: TLSv1.2 (IN), TLS header, Certificate Status (22):
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....h
+== Info: TLSv1.3 (IN), TLS handshake, Server hello (2):
+<= Recv SSL data, 104 bytes (0x68)
+0000: ...d....IZN....g.....%K...K...vn..0#.7 *..a.).M..:.N.Qw..9b..z..
+0040: s.Wp&.../.......................http/1.1
+== Info: TLSv1.2 (IN), TLS header, Certificate Status (22):
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....n
+== Info: TLSv1.2 (IN), TLS handshake, Certificate (11):
+<= Recv SSL data, 4974 bytes (0x136e)
+0000: ...j..g...0...0...........9..I....~.`.c..0...*.H........0<1.0...
+0040: U....US1.0...U....Amazon1.0...U....Amazon RSA 2048 M020...230125
+0080: 000000Z..240224235959Z0(1&0$..U....*.lambda-url.us-east-1.on.aws
+00c0: 0.."0...*.H.............0..........~..^O.. ....S..)..=.o.%.i....
+0100: (p.....d.....b:...l(2.....#...T..:.....;r.........>.....:.g..&Jy
+0140: ..Q.C.+..1....]0.D..V..N4."x..^.!."....Y..#.@4.!.T<.......\.'...
+0180: k.".t.....>...D..NS/zc... ........,..|.B.G..z^...cB.4..Uu...RD..
+01c0: .A..z.....1.d....2.^.3.A..@_g..!..........0...0...U.#..0....1R.Z
+0200: P..|tq.....z...0...U......m..........z...6..n%0(..U...!0...*.lam
+0240: bda-url.us-east-1.on.aws0...U...........0...U.%..0...+.........+
+0280: .......0;..U...40200...,.*http://crl.r2m02.amazontrust.com/r2m02
+02c0: .crl0...U. ..0.0...g.....0u..+........i0g0-..+.....0..!http://oc
+0300: sp.r2m02.amazontrust.com06..+.....0..*http://crt.r2m02.amazontru
+0340: st.com/r2m02.cer0...U.......0.0..~..+.....y......n...j.h.v.v..?.
+0380: ...Q.a....4....).hB...gLZ:t.....5i/.....G0E.!.........sJH..JY5..
+03c0: 7.1.:.O....o =. d.<.\.......E...1t..O.#tKb..."...v.s....L.x. }G.
+0400: .....Q^q.*.k..z.wr......5i......G0E. v......ZS.\8.......m?.}.a..
+0440: .."...!..RE#f.G#...M.q^s...>.&.{..l..$Up.v.H..k..G4..j...0..R..V
+0480: .,.....9..s.....5h......G0E.!.......(...YR............g)..Y.)j. 
+04c0: D..>.J.9s..j.1L)+.2...1.w#.m ..g0...*.H..............W.....0.`.#
+0500: ...7.....;..............u.U%8....e...g.(.b).M...'r..[G.......^..
+0540: )#.VZ.h.....Z.7..n..TIM.Y..:.o.[c..6.uKX.)..T(.z..*.`g..#.....E.
+0580: ;...Q..b.:...]E......s.`+4.....&.................NR*...8c%.C...(
+05c0: ...R.......'[^.\..u.1nK....[..5...wy..J...].....-E^]..b0..^0..F.
+0600: .......s.JK..N..;....-:..0...*.H........091.0...U....US1.0...U..
+0640: ..Amazon1.0...U....Amazon Root CA 10...220823222530Z..3008232225
+0680: 30Z0<1.0...U....US1.0...U....Amazon1.0...U....Amazon RSA 2048 M0
+06c0: 20.."0...*.H.............0.........C..Z.y.)..o...C..X..^7J...E.s
+0700: ...XYo...Fr.yP-...............2,.t..p<N..Wz.4.U{.e,.....c.,h...
+0740: .W.;..'ZSL_9Z..E........7.l.R..e*.......NZ...b...).y.....gQ8Nx)j
+0780: ..(_'!..\..._R.Xv.#Sd.Y..".&...x>+.G...y8..we....;....z.Y..Ec...
+07c0: [..I.....%:..#hO.Ts8{.2.j,.....~us........Z0..V0...U.......0....
+0800: ...0...U...........0...U.%..0...+.........+.......0...U.......1R
+0840: .ZP..|tq.....z...0...U.#..0.......4.......Y....N..0{..+........o
+0880: 0m0/..+.....0..#http://ocsp.rootca1.amazontrust.com0:..+.....0..
+08c0: .http://crt.rootca1.amazontrust.com/rootca1.cer0?..U...80604.2.0
+0900: ..http://crl.rootca1.amazontrust.com/rootca1.crl0...U. ..0.0...g
+0940: .....0...*.H.............-N...@3~/..n..?.K...........][Q..y..Q..
+0980: ...j.7hf..)...[....E...[.u.....v,...'^g..}...@N>(..w..U~.a.4.6..
+09c0: ..V.I4.pL>.,.5..:.F(.Nj..,.v$*.b.=....&..f........S.Ho.... e".<
+0a00: ......t....m[P9.Q[>j..C.R6....}.^..4"......U .l.H..........j4...
+0a40: ....5.M.9~..ZY.gZwoJ........0...0..z.........J*'.....+.......0.
+0a80: ..*.H........0..1.0...U....US1.0...U....Arizona1.0...U....Scotts
+0ac0: dale1%0#..U....Starfield Technologies, Inc.1;09..U...2Starfield 
+0b00: Services Root Certificate Authority - G20...150525120000Z..37123
+0b40: 1010000Z091.0...U....US1.0...U....Amazon1.0...U....Amazon Root C
+0b80: A 10.."0...*.H.............0.........x.q.x..q.G.Pt}n...v..h.X!`.
+0bc0: t../..-...CzN...6.....H...6L...#.>.7....Ih....v8.a....6..JV.E...
+0c00: ...t...59/.. P.lz.......G..P8....9X.....Hg0...x^o..Q.0.f.Ef.T...
+0c40: ..H....0-}-tp5..$...Yn.s...2F(.C........$.-K.q\^i.....8..P8o..-b
+0c80: ....T.w.g....#.?@  ...L>;$&...l............10..-0...U.......0..
+0cc0: ..0...U...........0...U..........4.......Y....N..0...U.#..0...._
+0d00: .....0+8...mJ.....0x..+........l0j0...+.....0.."http://ocsp.root
+0d40: g2.amazontrust.com08..+.....0..,http://crt.rootg2.amazontrust.co
+0d80: m/rootg2.cer0=..U...60402.0...,http://crl.rootg2.amazontrust.com
+0dc0: /rootg2.crl0...U. ..0.0...U. .0...*.H.............b7B\...>.,...l
+0e00: E...z..X....>..%<.oP..5j..4.2!.HD...=..sm....l.(...Gy..~0[.;.`.
+0e40: w.....|^....{"....~.F....&W.09b.........>.ChlW.... ....j]..Jm.X.
+0e80: ..91_|s...j...'....F.~.r..R>...cw.i..9....EM.Q:.]]7dL~0.U$B.6.].
+0ec0: ..a.....$...t..{E)P9....5%..jG#1/\.....bQ.*...4.!...y0..u0..]...
+0f00: .......JL4..0...*.H........0h1.0...U....US1%0#..U....Starfield 
+0f40: Technologies, Inc.1200..U...)Starfield Class 2 Certification Aut
+0f80: hority0...090902000000Z..340628173916Z0..1.0...U....US1.0...U...
+0fc0: .Arizona1.0...U....Scottsdale1%0#..U....Starfield Technologies, 
+1000: Inc.1;09..U...2Starfield Services Root Certificate Authority - G
+1040: 20.."0...*.H.............0..........:.*.N....._..S..?... .m):..}
+1080: <.kv8c.6`..^\.../Y...%C..i.R...q..-.No..I....V.+.t....&......j;
+10c0: X..GV.%..pS...t..g..h:..@Z.JN.C.;.V..p.R.{}.:..1.E..`..Y.+..4G..
+1100: ..em..,.......I|fN.:m...4.....3.G..k.%.....EF2.p....IC..ls.d.aA.
+1140: ..T../.".&..YTh...*/.U.u@`...U9..........0..0...U.......0....0.
+1180: ..U...........0...U......._.....0+8...mJ.....0...U.#..0...._....
+11c0: ...[U.........0O..+........C0A0...+.....0...http://o.ss2.us/0!..
+1200: +.....0...http://x.ss2.us/x.cer0&..U....0.0.......http://s.ss2.u
+1240: s/r.crl0...U. ..0.0...U. .0...*.H.............#...W.}..yL..U..Sn
+1280: >G...U...6...S.]4(k..U.g..?..3..X...../..`.........u.O..m......
+12c0: ~@,....v.3.w...S..d..'.i.M^....u.XD-.<p...i..w.1^,...:Gi.y_..T
+1300: ..^.x.`'...w.#Sw]...Y.......$.5.z....}..?...rT....Y{..R.F...dv.H
+1340: ..y.nV..,....8.....[.....4I.V..._.3..G.0.]...
+== Info: TLSv1.2 (IN), TLS header, Certificate Status (22):
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....M
+== Info: TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+<= Recv SSL data, 333 bytes (0x14d)
+0000: ...I...A...(.......g...4.e..E..,ZnF../.c.`..f.$v>....$.iHQ.w...n
+0040: &.=u.5.......^'..o.|.......r....>u..{....pb..D].Iv....6)...Zw.E.
+0080: ...B..Y.4.c..z........ZQ.*.b..)e^..#e#..GL$.1Q..:....b.....Ufq..
+00c0: .3.....<..L.*..q.*!..-........,M_M..A.../....+.p..........,A....
+0100: .J.e|<.].E=/2u....h.p...{&_..a.......V..Z./. ...l......d.^...)"Z
+0140: .E<=..v.[K...
+== Info: TLSv1.2 (IN), TLS header, Certificate Status (22):
+<= Recv SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.2 (IN), TLS handshake, Server finished (14):
+<= Recv SSL data, 4 bytes (0x4)
+0000: ....
+== Info: TLSv1.2 (OUT), TLS header, Certificate Status (22):
+=> Send SSL data, 5 bytes (0x5)
+0000: ....F
+== Info: TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+=> Send SSL data, 70 bytes (0x46)
+0000: ...BA../.?{...&...L$~......X#.v........u..4.|.......g.k..]z..b).
+0040: .DF.H.
+== Info: TLSv1.2 (OUT), TLS header, Finished (20):
+=> Send SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+=> Send SSL data, 1 bytes (0x1)
+0000: .
+== Info: TLSv1.2 (OUT), TLS header, Certificate Status (22):
+=> Send SSL data, 5 bytes (0x5)
+0000: ....(
+== Info: TLSv1.2 (OUT), TLS handshake, Finished (20):
+=> Send SSL data, 16 bytes (0x10)
+0000: .....6.3.....:.9
+== Info: TLSv1.2 (IN), TLS header, Finished (20):
+<= Recv SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.2 (IN), TLS header, Certificate Status (22):
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....(
+== Info: TLSv1.2 (IN), TLS handshake, Finished (20):
+<= Recv SSL data, 16 bytes (0x10)
+0000: .........}......
+== Info: SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+== Info: ALPN, server accepted to use http/1.1
+== Info: Server certificate:
+== Info:  subject: CN=*.lambda-url.us-east-1.on.aws
+== Info:  start date: Jan 25 00:00:00 2023 GMT
+== Info:  expire date: Feb 24 23:59:59 2024 GMT
+== Info:  subjectAltName: host "br7gxujg3p2vooleijh7nuwq2u0tpggb.lambda-url.us-east-1.on.aws" matched cert's "*.lambda-url.us-east-1.on.aws"
+== Info:  issuer: C=US; O=Amazon; CN=Amazon RSA 2048 M02
+== Info:  SSL certificate verify ok.
+== Info: TLSv1.2 (OUT), TLS header, Supplemental data (23):
+=> Send SSL data, 5 bytes (0x5)
+0000: .....
+=> Send header, 177 bytes (0xb1)
+0000: POST / HTTP/1.1
+0011: Host: br7gxujg3p2vooleijh7nuwq2u0tpggb.lambda-url.us-east-1.on.a
+0051: ws
+0055: User-Agent: curl/7.81.0
+006e: Accept: */*
+007b: Content-Type: application/json
+009b: Content-Length: 46
+00af: 
+=> Send data, 46 bytes (0x2e)
+0000: {"guesses": ["RAISE"], "clues": [[0,0,1,0,0]]}
+== Info: TLSv1.2 (IN), TLS header, Supplemental data (23):
+<= Recv SSL data, 5 bytes (0x5)
+0000: .....
+== Info: Mark bundle as not supporting multiuse
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 37 bytes (0x25)
+0000: Date: Tue, 14 Feb 2023 03:34:24 GMT
+<= Recv header, 32 bytes (0x20)
+0000: Content-Type: application/json
+<= Recv header, 19 bytes (0x13)
+0000: Content-Length: 7
+<= Recv header, 24 bytes (0x18)
+0000: Connection: keep-alive
+<= Recv header, 56 bytes (0x38)
+0000: x-amzn-RequestId: 60da811a-4b5e-41c4-b9d7-8e7638835d42
+<= Recv header, 69 bytes (0x45)
+0000: X-Amzn-Trace-Id: root=1-63eb013c-576f93951edbca4a2e51fcaf;sample
+0040: d=0
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 7 bytes (0x7)
+0000: "LITHO"
+== Info: Connection #0 to host br7gxujg3p2vooleijh7nuwq2u0tpggb.lambda-url.us-east-1.on.aws left intact
