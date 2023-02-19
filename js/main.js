@@ -52,7 +52,7 @@ function makeLetterListener(i, letters, guessButton) {
         else {
             letters[i].innerText = letters[i].oldValue;
         }
-        letters[i].parentElement.parentElement.parentElement.nextElementSibling.innerHTML = e.data + " " + e.inputType;
+        //letters[i].parentElement.parentElement.parentElement.nextElementSibling.innerHTML = e.data + " " + e.inputType;
 
         if (i+1 < letters.length) {
             letters[i+1].focus();
