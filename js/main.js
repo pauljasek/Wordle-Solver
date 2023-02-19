@@ -229,8 +229,7 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
         } else {
             infoText.remove();
             possibleWordsText.remove();
-            console.log('Horray!');
-            infoText.innerText = 'Horray!';
+            infoText.innerText = 'Hooray!';
             currentPossibleWords = guesses[guesses.length - 1];
             board.appendChild(infoText);
         }
