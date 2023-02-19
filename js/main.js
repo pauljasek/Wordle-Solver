@@ -41,7 +41,7 @@ function makeLetterListener(i, letters, guessButton) {
             letters[i].innerText = e.data.toUpperCase();
             letters[i].oldValue = letters[i].innerText;
         } else if (e.data && e.data.length === 2) {
-            if (e.data[0].toUpperCase() == letters[i].oldValue) {
+            if (e.data[0].toUpperCase() === letters[i].oldValue) {
                 letters[i].innerText = e.data[1].toUpperCase();
                 letters[i].oldValue = letters[i].innerText;
             } else {
