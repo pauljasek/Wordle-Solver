@@ -198,9 +198,16 @@ function getDefaultClue(guess) {
                     occurrences++;
                 }
             }
-            if (!currentPossibleWords.some(word => nonGreenIndices.map(x => word[x] === guess[i]).reduce((x,y) => x+y) < occurrences)) {
+            console.log('occurrences ' + occurrences);
+            if (!currentPossibleWords.some(word => nonGreenIndices.map(x => word[x] === guess[i]).reduce((x,y) => x+y) < occurrences + 1)) {
                 yellows.push(guess[i]);
                 clue[i] = 1;
+            } else {
+                for (var j = 0; j < i; j++) {
+                    if (guess[j] === guess[i]) {
+                        clue[j] = 0;
+                    }
+                }
             }
         }
     }
