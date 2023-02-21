@@ -139,3 +139,34 @@ button.resetButton {
     from{ bottom:-50px; opacity:0 } 
     to{ bottom:0; opacity:1 }
   }
+
+  .flip-letter {
+    -webkit-animation-name: flipletter;
+    -webkit-animation-duration: 1s;
+    animation-name: flipletter;
+    animation-duration: 1s
+  }
+  
+  @-webkit-keyframes flipletter {
+    0% {
+        background: scaleY(1);
+      }
+    50% {
+    background: scaleY(0);
+    }
+    100% {
+    background: scaleY(1);
+    }
+  }
+  
+  @keyframes flipletter { 
+    0% {
+        background: scaleY(1);
+    }
+    50% {
+    background: scaleY(0);
+    }
+    100% {
+    background: scaleY(1);
+    }
+  }

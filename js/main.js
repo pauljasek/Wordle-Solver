@@ -155,8 +155,17 @@ function createNewRow(board, text, animate=true, solved=false) {
 function makeLetterClickListener(i, letter, clue, clueButton) {
     return function(e) {
         clue[i] = (clue[i] + 1) % 3;
+        letter.animate(
+            [
+              { transform: 'scaleY(1)', backgroundColor: letter.style.backgroundColor},
+              { transform: 'scaleY(0.1)', backgroundColor: COLORS[clue[i]], offset: 0.5 },
+              { transform: 'scaleY(1)', backgroundColor: COLORS[clue[i]] }
+            ], {
+              duration: 200,
+              iterations: 1,
+            }
+          );
         letter.style.backgroundColor = COLORS[clue[i]];
-        clueButton.focus();
     }
 }
 
