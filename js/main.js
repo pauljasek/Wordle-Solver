@@ -254,9 +254,10 @@ function makeGuessButtonListener(infoText, possibleWordsText, letters, guessButt
             if (clue[i] !== 0) {
                 letters[i].animate(
                     [
-                      { transform: 'scaleY(1)', backgroundColor: 'white'},
-                      { transform: 'scaleY(0.1)', offset: i/6 },
-                      { transform: 'scaleY(1)', backgroundColor: COLORS[clue[i]] }
+                      { transform: 'scaleY(1)', backgroundColor: 'white', border: '2px solid #d3d6da', color: 'black'},
+                      { transform: 'scaleY(1)', backgroundColor: 'white', border: '2px solid #d3d6da', color: 'black', offset: i/6 },
+                      { transform: 'scaleY(0)', backgroundColor: COLORS[clue[i]], color: 'white', border: 'none', offset: (i/6 + 1)/2},
+                      { transform: 'scaleY(1)', backgroundColor: COLORS[clue[i]], color: 'white', border: 'none' }
                     ], {
                       duration: 200 + i*100,
                       iterations: 1,
@@ -265,9 +266,9 @@ function makeGuessButtonListener(infoText, possibleWordsText, letters, guessButt
             } else {
                 letters[i].animate(
                     [
-                      {backgroundColor: 'white'},
-                      {backgroundColor: 'white', offset: i/5},
-                      {backgroundColor: COLORS[clue[i]]}
+                      {backgroundColor: 'white', border: '2px solid #d3d6da', color: 'black'},
+                      {backgroundColor: 'white', border: '2px solid #d3d6da', color: 'black', offset: i/5},
+                      {backgroundColor: COLORS[clue[i]], border: 'none', color: 'white'}
                     ], {
                       duration: 100 + i*100,
                       iterations: 1,
