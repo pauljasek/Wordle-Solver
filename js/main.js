@@ -82,7 +82,9 @@ function createNewRow(board, text, animate=true, solved=false) {
     var possibleWordsText = document.createElement("p");
     possibleWordsText.className = "possibleWords";
 
-    if (currentPossibleWords.length <= 20) {
+    if (currentPossibleWords.length === 1) {
+        possibleWordsText.innerHTML = "There is only one word it could be.";
+    } else if (currentPossibleWords.length <= 20) {
         possibleWordsText.innerHTML = "There are " + currentPossibleWords.length + " possible words:<br>" + currentPossibleWords.join(', ');
     } else {
         possibleWordsText.innerHTML = "There are " + currentPossibleWords.length + " possible words.";
@@ -158,28 +160,70 @@ function makeLetterClickListener(i, letter, clue, clueButton) {
     }
 }
 
+function getDefaultClue(guess) {
+    if (currentPossibleWords.length === 1 && guess === currentPossibleWords[0]) {
+        return [2,2,2,2,2];
+    }
+
+    var clue = [0,0,0,0,0];
+    var nonGreenIndices = [];
+    // Check for green letters
+    for (var i = 0; i < clue.length; i++) {
+        if (greenLetters[i] === guess[i]) {
+            clue[i] = 2;
+        } else if (currentPossibleWords.every(x => x[i] === guess[i])) {
+            clue[i] = 2;
+            greenLetters[i] = guess[i];
+        } else {
+            nonGreenIndices.push(i);
+        }
+    }
+
+    // Check for at least yellow letters
+    var yellows = [];
+    for (var i = 0; i < guess.length; i++) {
+        if (clue[i] === 2) {
+            continue;
+        }
+        if (yellows.indexOf(guess[i]) === -1) {
+            if (!currentPossibleWords.some(word => nonGreenIndices.every(x => word[x] !== guess[i]))) {
+                yellows.push(guess[i]);
+                clue[i] = 1;
+            }
+        }
+        else {
+            var occurrences = 0;
+            for (var j = 0; j < yellows.length; j++) {
+                if (guess[i] === yellows[j]) {
+                    occurrences++;
+                }
+            }
+            if (!currentPossibleWords.some(word => nonGreenIndices.map(x => word[x] === guess[i]).reduce((x,y) => x+y) < occurrences)) {
+                yellows.push(guess[i]);
+                clue[i] = 1;
+            }
+        }
+    }
+    return clue;
+
+}
+
 function makeGuessButtonListener(infoText, possibleWordsText, letters, guessButton, solved) {
     return function(e) {
+        infoText.style.color = "black";
+
         var guess = "";
         for (var i = 0; i < letters.length; i++) {
             guess = guess + letters[i].innerText;
         }
         if (words.indexOf(guess) === -1) {
+            letters[0].focus();
+            infoText.innerText = "The guess you entered is not in my dictionary."
+            infoText.style.color = "red";
             return;
         }
 
-        var clue = []
-        var defaultClue = 0;
-        if (solved || (currentPossibleWords.length === 1 && guess === currentPossibleWords[0])) {
-            defaultClue = 2;
-        }
-        for (var i = 0; i < letters.length; i++) {
-            if (guess[i] == greenLetters[i]) {
-                clue.push(2);
-            } else {
-                clue.push(defaultClue);
-            }
-        }
+        var clue = getDefaultClue(guess);
 
         guessButton.remove();
         guesses.push(guess);
@@ -215,7 +259,11 @@ function delay(time) {
 
 function makeClueButtonListener(board, infoText, possibleWordsText, letters, clueButton, clue) {
     return function(e) {
-        clueButton.display = "none";
+
+        clueButton.style.display = "none";
+        infoText.innerText = "";
+        infoText.style.color = "black";
+
         for (var i = 0; i < letters.length; i++) {
             letters[i].removeEventListener('click', letters[i].clickListener, false);    
         }
@@ -229,7 +277,7 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
             getGuess(guesses, clues, function(solver_guess, possibleWords) {
                 loader.remove();
                 infoText.remove();
-                //possibleWordsText.remove();
+                clueButton.remove();
                 currentPossibleWords = possibleWords;
                 for (var i = 0; i < clue.length; i++) {
                     if (clue[i] == 2) {
@@ -241,15 +289,16 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
                 loader.remove();
                 clues.pop();
                 infoText.innerText = error;
+                infoText.style.color = "red";
                 for (var i = 0; i < letters.length; i++) {
                     letters[i].addEventListener('click', letters[i].clickListener, false);
                 }
-                clueButton.display = "inline-flex";
+                clueButton.style.display = "inline-flex";
                 //board.appendChild(clueButton);
             })
         } else {
             infoText.remove();
-            possibleWordsText.remove();
+            //possibleWordsText.remove();
             infoText.innerText = 'Hooray!';
             currentPossibleWords = guesses[guesses.length - 1];
             board.appendChild(infoText);

@@ -4,7 +4,7 @@ html, body {
     font-family: "arial";
 }
 
-div {
+.row_container div {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
