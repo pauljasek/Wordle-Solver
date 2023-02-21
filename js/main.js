@@ -9,6 +9,7 @@ var guesses = [];
 var clues = [];
 var greenLetters = [null, null, null, null, null];
 var currentPossibleWords = words;
+var board = document.getElementById("board");
 
 function getGuess(guesses, clues, success_f, fail_f) {
     const xhr = new XMLHttpRequest();
@@ -207,14 +208,20 @@ function makeGuessButtonListener(infoText, possibleWordsText, letters, guessButt
     }
 }
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+  
+
 function makeClueButtonListener(board, infoText, possibleWordsText, letters, clueButton, clue) {
     return function(e) {
-        clueButton.remove();
+        clueButton.display = "none";
         for (var i = 0; i < letters.length; i++) {
             letters[i].removeEventListener('click', letters[i].clickListener, false);    
         }
         clues.push(clue);
-        if (clue[0] != 2 || clue[1] != 2 || clue[2] != 2 || clue[3] != 2 || clue[4] != 2) {
+        var guess = guesses[guesses.length-1];
+        if (currentPossibleWords.indexOf(guess) === -1 || clue[0] != 2 || clue[1] != 2 || clue[2] != 2 || clue[3] != 2 || clue[4] != 2) {
             console.log("making guess...", guesses, clues)
             var loader = document.createElement("div");
             loader.id = "loader";
@@ -224,7 +231,6 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
                 infoText.remove();
                 //possibleWordsText.remove();
                 currentPossibleWords = possibleWords;
-                var guess = guesses[guesses.length-1];
                 for (var i = 0; i < clue.length; i++) {
                     if (clue[i] == 2) {
                         greenLetters[i] = guess[i];
@@ -238,7 +244,8 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
                 for (var i = 0; i < letters.length; i++) {
                     letters[i].addEventListener('click', letters[i].clickListener, false);
                 }
-                board.appendChild(clueButton);
+                clueButton.display = "inline-flex";
+                //board.appendChild(clueButton);
             })
         } else {
             infoText.remove();
@@ -246,6 +253,8 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
             infoText.innerText = 'Hooray!';
             currentPossibleWords = guesses[guesses.length - 1];
             board.appendChild(infoText);
+            delay(1000).then(() => createResetButton(board));
+            
         }
         
     }
@@ -262,5 +271,29 @@ function createClueButton(infoText, possibleWordsText, board, letters, clue) {
     return clueButton;
 }
 
-var board = document.getElementById("board");
-createNewRow(board, "RAISE", animate=true);
+function createResetButton(board) {
+    var resetButton = document.createElement("button");
+    resetButton.className = "resetButton";
+    resetButton.classList.add("animate-bottom");
+    resetButton.id = "reset";
+    resetButton.innerHTML = "Solve another Wordle"
+    resetButton.addEventListener("click", reset, false);
+    board.appendChild(resetButton);
+    resetButton.focus();
+    return resetButton;
+}
+
+function reset() {
+    var child = board.lastElementChild; 
+    while (child) {
+        board.removeChild(child);
+        child = board.lastElementChild;
+    }
+    guesses = [];
+    clues = [];
+    greenLetters = [null, null, null, null, null];
+    currentPossibleWords = words;
+    createNewRow(board, "RAISE", animate=true);
+}
+
+reset();

@@ -255,18 +255,18 @@ logger.debug(common_np)
 """
 Empirical results: 2:4, 3: 94, 4: 107, 5: 25, 6: 5
 """	
-
 def guess_wordle(guesses, clues, print_possibilities=False):
     guess = 'RAISE'
 
-    if len(guesses) == 0:
-        return guess
-    
     possible_words = create_np_set(sorted(words))
 
+    if len(guesses) == 0:
+        return guess, possible_words
+    
     for guess, clue in zip(guesses, clues):
         if not clue in mapping[guess].keys():
-            return None
+            possible_words = np.array([], dtype=np.int16);
+            break
         possible_words = snp.intersect(possible_words, mapping[guess][clue])
 
     possible_common_words = snp.intersect(possible_words, common_np)
@@ -330,7 +330,7 @@ def handler(event, context):
                 'body': json.dumps('Invalid guess. Guess is not in our dictionary.')
             }
 
-    guess, possible_words = guess_wordle(guesses, clues, print_possibilities=True)
+    guess, possible_words = guess_wordle(guesses, clues, print_possibilities=False)
 
     if guess is None:
         return {

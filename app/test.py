@@ -1,2 +1,5 @@
-import app
-app.handler({'guesses': ['RAISE'], 'clues': [[0,1,0,1,2]]}, None)
+import app, json
+
+result =  app.handler({'body': json.dumps({'guesses': ['RAISE'], 'clues': [[2,2,2,2,0]]})}, None)
+#result = app.guess_wordle(["RAISE"], [(2,2,2,2,0)]);
+print(result)

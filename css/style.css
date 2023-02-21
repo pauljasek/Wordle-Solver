@@ -86,6 +86,18 @@ button.solveButton {
     margin: 2.5px 2.5px;
 }
 
+button.resetButton {
+    font-family: "arial";
+    font-size: 1rem;
+    text-decoration: underline;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: blue;
+    background-color: transparent;
+    border: none;
+    margin: 2.5px 2.5px;
+}
+
 #loader {
     display: inline-flex;
     justify-content: center;
