@@ -251,6 +251,30 @@ function makeGuessButtonListener(infoText, possibleWordsText, letters, guessButt
         for (var i = 0; i < letters.length; i++) {
             letters[i].contentEditable = false;
             letters[i].style.border = 'none';
+            if (clue[i] !== 0) {
+                letters[i].animate(
+                    [
+                      { transform: 'scaleY(1)', backgroundColor: 'white'},
+                      { transform: 'scaleY(0.1)', offset: i/6 },
+                      { transform: 'scaleY(1)', backgroundColor: COLORS[clue[i]] }
+                    ], {
+                      duration: 200 + i*100,
+                      iterations: 1,
+                    }
+                  );
+            } else {
+                letters[i].animate(
+                    [
+                      {backgroundColor: 'white'},
+                      {backgroundColor: 'white', offset: i/5},
+                      {backgroundColor: COLORS[clue[i]]}
+                    ], {
+                      duration: 100 + i*100,
+                      iterations: 1,
+                    }
+                  );
+
+            }
             letters[i].style.backgroundColor = COLORS[clue[i]];
             letters[i].style.color = "white";
             letters[i].removeEventListener('input', letters[i].inputListener, false);
@@ -318,7 +342,21 @@ function makeClueButtonListener(board, infoText, possibleWordsText, letters, clu
             infoText.innerText = 'Hooray!';
             currentPossibleWords = guesses[guesses.length - 1];
             board.appendChild(infoText);
-            delay(1000).then(() => createResetButton(board));
+            for (var i = 0; i < letters.length; i++) {
+                letters[i].animate(
+                    [
+                      { transform: 'translateY(0)'},
+                      { transform: 'translateY(-50%)', offset: 0.4},
+                      { transform: 'translateY(10%)', offset: 0.9},
+                      { transform: 'translateY(0)'}
+                    ], {
+                      duration: 400,
+                      iterations: 1,
+                      delay: i*100 + 1000,
+                    }
+                  );
+            }
+            delay(2000).then(() => createResetButton(board));
             
         }
         
