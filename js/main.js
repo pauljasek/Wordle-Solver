@@ -296,4 +296,22 @@ function reset() {
     createNewRow(board, "RAISE", animate=true);
 }
 
+/* When the solver lambda function is not invoked for 5 minutes or more, it 
+requires a cold start which causes ~1s of latency. This function sends an empty
+request to the warm up the lamda and prevent a cold start. It is meant to be called
+when the webpage loads. */ 
+function warmupLambda(){
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://br7gxujg3p2vooleijh7nuwq2u0tpggb.lambda-url.us-east-1.on.aws/");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
+    xhr.onload = () => {
+    if (xhr.readyState != 4 || xhr.status != 200) {
+        console.log(`Error: ${xhr.status}`);
+        error = JSON.parse(xhr.responseText);
+    }
+    };
+    xhr.send();
+}
+
+warmupLambda();
 reset();
